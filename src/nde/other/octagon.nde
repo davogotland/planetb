@@ -1,0 +1,5 @@
+POLYGON = 1, 1, 1, 1, 1, 8, 0, #000000, EMPTY, 0.04
+SAVE = 1, octagon.png, 0.8, 0.8, 1.4, 1.4, #FFFFFF
+RECTANGLE = 2, 0, 0, 3, 3, #000000
+POLYGON = 2, 1, 1, 1, 1, 8, 0, #FFFFFF, EMPTY, 0.04
+SAVE = 2, octagon_inv.png, 0.8, 0.8, 1.4, 1.4, #000000

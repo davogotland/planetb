@@ -1,0 +1,18 @@
+INCLUDE = init.nde
+PAGE = [A3LANDSCAPE]
+BORDER = RECTANGLE, [black], 0.02, DOTTED
+[original] = 42
+[size] = [original] / 2
+CARDSIZE = [size], [size]
+CARDS = 8
+[front] = 1-4
+[back] = 5-8
+[x] = 0|-21
+[y] = 0|0|-21|-21
+IMAGE = [front], board\composite\board_main_2p.png, [x], [y], [original], [original], 0, N
+IMAGE = [back], board\composite\board_main_3to4p.png, [x], [y], [original], [original], 0, N
+
+[front_duplex] = [front]
+[back_duplex] = "6,5,8,7"
+DUPLEX = [front], [back_duplex]
+PRINT = DUPLEX

@@ -1,0 +1,201 @@
+UNIT = MM
+PAGE = 210, 297, LANDSCAPE, HV
+CARDSIZE = 134, 164
+BORDER = NONE
+
+[nofCards] = 2
+[ALL] = 1-2
+
+CARDS = [nofCards]
+
+[black] = #000000
+[FONT_large] = "Nord", 18, T, [black]
+[FONT_medium] = "Nord", 14, T, [black]
+[FONT_small] = "Nord", 10, T, [black]
+[FONT_smallItalic] = "Nord", 10, TI, [black]
+[FONT_smallUnderlined] = "Nord", 10, TU, [black]
+
+[date] = Date
+[platform] = Platform
+[two] = 2
+[three] = 3
+[four] = 4
+[players] = Players
+[goals] = Goals
+[events] = Events
+[end_game_trigger] = Game end trigger
+[egt_energy] = Energy
+[egt_modules] = Modules
+[egt_projects] = Projects
+[name] = Name
+[energy] = Energy
+[oil] = Oil
+[steel] = Steel
+[cement] = Cement
+[modules] = Modules
+[projects] = Projects
+[vp_tokens] = VP tokens
+[bonus] = Bonus
+[goal] = Goal
+[total] = TOTAL
+[projects_revealed] = Projects revealed
+[winners_mods_and_projs] = Winner's Modules & Projects
+
+; A cell (empty rectangle)
+;
+; x - x position
+; y - y position
+; w - width
+; h - height
+; c - color of the rectangle
+; t - thickness of the rectangle bound
+MACRO = CELL, (x), (y), (w), (h), (c), (t)
+   RECTANGLE = [ALL], (x), (y), (w), (h), (c), EMPTY, (t)
+END
+
+; A cell (empty rectangle) with its
+; name in the top left corner
+;
+; n - the name
+; x - x position
+; y - y position
+; w - width
+; h - height
+; c - color of the rectangle bounds
+; t - thickness of the rectangle bounds
+; f - font to use for the name
+; ha - horizontal alignment of the name
+; va - vertical alignment of the name
+MACRO = NAMEDCELL, (n), (x), (y), (w), (h), (c), (t), (f), (ha), (va)
+   CELL = (x), (y), (w), (h), (c), (t)
+   FONT = (f)
+   <celltextarea> = {(x) + 1}, {(y) + 0.5}, (w), (h)
+   TEXT = [ALL], (n), <!celltextarea, CC, 95%%, 95%%>, (ha), (va)
+END
+
+; A check box (empty rectangle) followed
+; by its name. Text box set to 40mm x 10mm.
+; Horizontal offset of the text is 4mm.
+;
+; n - the name
+; x - x position
+; y - y position
+; s - size of the rectangle (square)
+; v - vertical offset for the rectangle
+; c - color of the rectangle bounds
+; f - font to use for the name
+MACRO = OPTION, (n), (x), (y), (s), (v), (c), (f)
+   CELL = (x), {(y) + (v)}, (s), (s), (c), 0.4
+   FONT = (f)
+   TEXT = [ALL], (n), {(x) + 3}, (y), 40, 10, LEFT, TOP
+END
+
+;;;;;;;;;;;;;;;;;;;;
+;; BORDER
+;;;;;;;;;;;;;;;;;;;;
+[leftmost] = 2
+[topmost] = 2
+[totalwidth] = 130
+[totalheight] = 160
+CELL = [leftmost], [topmost], [totalwidth], [totalheight], [black], 1.6
+
+;;;;;;;;;;;;;;;;;;;;
+;; TOP HEADER LINE
+;;;;;;;;;;;;;;;;;;;;
+
+[x] = [leftmost]
+[y] = [topmost]
+[w] = 20
+[h] = 12
+NAMEDCELL = [date], [x], [y], [w], [h], [black], 0.8, [FONT_smallItalic], LEFT, TOP
+[x] = {[x] + [w]}
+[w] = 20
+NAMEDCELL = [platform], [x], [y], [w], [h], [black], 0.8, [FONT_smallItalic], LEFT, TOP
+[x] = {[x] + [w]}
+[w] = 30
+NAMEDCELL = [players], [x], [y], [w], [h], [black], 0.8, [FONT_large], CENTER, CENTER
+[ox] = {[x] + 1}
+[oy] = {[y] + 0.5}
+OPTION = [two], [ox], [oy], 2, 1.5, [black], [FONT_small]
+[oy] = {[oy] + 3.5}
+OPTION = [three], [ox], [oy], 2, 1.5, [black], [FONT_small]
+[oy] = {[oy] + 3.5}
+OPTION = [four], [ox], [oy], 2, 1.5, [black], [FONT_small]
+[x] = {[x] + [w]}
+[w] = 16
+CELL = [x], [y], [w], [h], [black], 0.8
+[ox] = {[x] + 1}
+[oy] = {[y] + 2}
+OPTION = [goals], [ox], [oy], 2, 1.5, [black], [FONT_small]
+[oy] = {[oy] + 4}
+OPTION = [events], [ox], [oy], 2, 1.5, [black], [FONT_small]
+[x] = {[x] + [w]}
+[w] = {[totalwidth] - [x] + [leftmost]}
+NAMEDCELL = [end_game_trigger], [x], [y], [w], [h], [black], 0.8, [FONT_smallUnderlined], LEFT, TOP
+[ox] = {[x] + 1}
+[oy] = {[y] + 4}
+OPTION = [egt_energy], [ox], [oy], 2, 1.5, [black], [FONT_small]
+[oy] = {[oy] + 3.5}
+OPTION = [egt_modules], [ox], [oy], 2, 1.5, [black], [FONT_small]
+[oy] = {[oy] - 3.5}
+[ox] = {[ox] + 20}
+OPTION = [egt_projects], [ox], [oy], 2, 1.5, [black], [FONT_small]
+
+;;;;;;;;;;;;;;;;;;;;
+;; NAMES AND SCORES
+;;;;;;;;;;;;;;;;;;;;
+[x] = [leftmost]
+[y] = {[y] + [h] + 2}
+[w] = {[totalwidth] / 5}
+[h] = 10
+[rule_thickness] = 1.4
+FOR = A, 0, 4
+   CELL = [x] + A * [w], [y], [w], [h], [black], 0.8
+NEXT
+FONT = [FONT_medium]
+TEXT = [ALL], [name], [x] + 2, [y], [w], [h], LEFT, CENTER
+[horizontalrule_x1] = {[x] + [w]}
+[horizontalrule_y1] = {[y] + 0.3}
+[y] = {[y] + [h]}
+LINE = [ALL], [leftmost], [y], {[leftmost] + [totalwidth]}, [y], [black], [rule_thickness]
+{[titles] = [energy]|
+            [oil]|
+            [steel]|
+            [cement]|
+            [modules]|
+            [projects]|
+            [vp_tokens]|
+            [bonus]|
+            [goal]
+}
+FOR = A, 0, 8
+   CELL = [x], [y] + A * [h], [w], [h], [black], 0.8
+   TEXT = [ALL], {titles?{A+1}}, [x] + 2, [y] + A * [h], [w], [h], LEFT, CENTER
+NEXT
+FOR = B, 1, 4
+   FOR = A, 0, 9
+      CELL = [x] + B * [w], [y] + A * [h], [w], [h], [black], 0.8
+   NEXT
+NEXT
+[y] = {[y] + 9 * [h]}
+LINE = [ALL], [leftmost], [y], {[leftmost] + [totalwidth]}, [y], [black], [rule_thickness]
+CELL = [x], [y], [w], [h], [black], 0.8
+TEXT = [ALL], [total], [x] + 2, [y], [w], [h], LEFT, CENTER
+[horizontalrule_x2] = [horizontalrule_x1]
+[horizontalrule_y2] = {[y] + [h] - 0.3}
+LINE = [ALL], [horizontalrule_x1], [horizontalrule_y1], [horizontalrule_x2], [horizontalrule_y2], [black], [rule_thickness]
+
+;;;;;;;;;;;;;;;;;;;;
+;; Projects and winner's cards
+;;;;;;;;;;;;;;;;;;;;
+[y] = {[y] + [h] + 2}
+[h] = {([totalheight] - [y] + [topmost]) / 3}
+[w] = 50
+NAMEDCELL = [projects_revealed], [x], [y], [w], [h], [black], 0.8, [FONT_medium], LEFT, CENTER
+[x] = {[x] + [w]}
+[w] = {[totalwidth] - [x] + [leftmost]}
+CELL = [x], [y], [w], [h], [black], 0.8
+[x] = [leftmost]
+[y] = {[y] + [h]}
+[h] = {[h] * 2}
+TEXT = [ALL], [winners_mods_and_projs], [x] + 2, [y] + 1, [w], [h], LEFT, TOP

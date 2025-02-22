@@ -1,0 +1,161 @@
+;CARDSIZE = 5.8, 8.8
+[card_width] = 5.8
+[card_height] = 8.8
+[duplexbacks]% = _TRUE_
+[border_guidelines]% = MARKDOT
+[border_type] = RECTANGLE
+[border_type]%[exportTTS] = ROUNDED
+PAGE = [A4PORTRAIT]
+INCLUDE = init.nde
+
+[nofActions] = 10
+[costs] = 1|1|1|2|2|3|4|5|6|5
+[imgs] = reserve|cement|activate|steel|sell|oil|onemodule|startpack|twomodule|project
+[ypos] = 1.3|2.0|2.7|3.4|4.1|4.8|5.5|6.2|6.9|7.6
+[xpos] = 1.6
+[xpos2] = [xpos] + 0.7
+[xpos3] = [xpos2] + 0.7
+[xpos4] = [xpos] + 0.8
+[AIDRANGE1]="1-4"
+[AIDRANGE2]="9-12"
+[AIDRANGE]=RANGEADD([AIDRANGE1], [AIDRANGE2])
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; TITLE
+;;;;;;;;;;;;;;;;;;;;;
+FONT = [FONT_player_aid_title]
+<heading1> = 0, 0, 5.8, 1.5
+TEXT = [AIDRANGE], "Available Actions", <heading1>, CENTER, CENTER
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; LIST OF ACTIONS
+;;;;;;;;;;;;;;;;;;;;;
+FONT = [FONT_player_aid_actions]
+FOR=A,1,[nofActions]
+   PRINTRESOURCE=[AIDRANGE], 0.2, {ypos?A}, {costs?A}, energy
+   IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]rightarrow[IMAGE_FILE_TYPE]", 0.85, {{ypos?A} + 0.2}, 0.4, 0.4, 0, N
+   IF={imgs?A}=cement
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]cement[IMAGE_FILE_TYPE]", [xpos], {{ypos?A} + 0.1}, 0.5, 0.5, 0, N
+   ELSEIF={imgs?A}=steel
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]steel[IMAGE_FILE_TYPE]", [xpos], {{ypos?A} + 0.1}, 0.5, 0.5, 0, N
+   ELSEIF={imgs?A}=oil
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]oil[IMAGE_FILE_TYPE]", [xpos], {ypos?A}, 0.6, 0.6, 0, N
+   ELSEIF={imgs?A}=activate
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]activate[IMAGE_FILE_TYPE]", [xpos], {{ypos?A} + 0.1}, 0.4, 0.5, 0, N
+   ELSEIF={imgs?A}=reserve
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]activate[IMAGE_FILE_TYPE]", [xpos], {{ypos?A} + 0.1}, 0.4, 0.5, 0, N
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]padlock[IMAGE_FILE_TYPE]", {[xpos] + 0.4}, {{ypos?A} + 0.05}, 0.6, 0.6, 0, N
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]project[IMAGE_FILE_TYPE]", {[xpos] + 1}, {{ypos?A} + 0.2}, 0.6238, 0.4, 0, N
+   ELSEIF={imgs?A}=sell
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]vp[IMAGE_FILE_TYPE]", [xpos], {ypos?A}, 0.6, 0.6, 0, N
+   ;ELSEIF={imgs?A}=mixed
+      ;PRINTMIXEDOFFER = [AIDRANGE], 1, {ypos?A}
+   ELSEIF={imgs?A}=onemodule
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]module[IMAGE_FILE_TYPE]", [xpos], {ypos?A}, 0.4, 0.6238, 0, N
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]activate[IMAGE_FILE_TYPE]", {[xpos] + 0.6}, {{ypos?A} + 0.1}, 0.4, 0.5, 0, N
+   ELSEIF={imgs?A}=startpack
+      PRINTRESOURCE = [AIDRANGE], [xpos], {ypos?A}, 5, cement
+      PRINTRESOURCE = [AIDRANGE], [xpos2], {ypos?A}, 4, steel
+      PRINTRESOURCE = [AIDRANGE], [xpos3], {ypos?A}, 3, oil
+   ELSEIF={imgs?A}=twomodule
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]module[IMAGE_FILE_TYPE]", [xpos], {ypos?A}, 0.4, 0.6238, 0, N
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]module[IMAGE_FILE_TYPE]", {[xpos] + 0.6}, {ypos?A}, 0.4, 0.6238, 0, N
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]activate[IMAGE_FILE_TYPE]", {[xpos] + 1.2}, {{ypos?A} + 0.1}, 0.4, 0.5, 0, N
+   ELSEIF={imgs?A}=project
+      IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]project[IMAGE_FILE_TYPE]", [xpos], {{ypos?A} + 0.2}, 0.6238, 0.4, 0, N
+      PRINTRESOURCE = [AIDRANGE], [xpos4], {ypos?A}, 7, energy
+      FONT = [FONT_player_aid_actionsexplained]
+      TEXT = [AIDRANGE], "(     in a 2 player       game)", {[xpos] + 0.8}, {{ypos?A} + 0.2}, 2.5, 1, LEFT, WWTOP
+   ENDIF
+NEXT
+
+<mixed> = 2.7, 2.35, 3.1, 2.5
+;RECTANGLE = [AIDRANGE], <mixed>, #000000, EMPTY, 0.04
+LINE = [AIDRANGE], <mixed, PTR, PTL>, #000000, 0.04
+LINE = [AIDRANGE], <mixed, PTL, PBL>, #000000, 0.04
+LINE = [AIDRANGE], <mixed, PBL, PBR>, #000000, 0.04
+IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]4players[IMAGE_FILE_TYPE]", 3.615, 2.65, 1.27, 0.59, 0, N
+FONT = [FONT_player_aid_actions]
+PRINTRESOURCE=[AIDRANGE], 2.9, 3.65, 3, energy
+IMAGE = [AIDRANGE], "[PATH_TO_IMAGES]rightarrow[IMAGE_FILE_TYPE]", 3.6, 3.85, 0.4, 0.4, 0, N
+PRINTMIXEDOFFER = [AIDRANGE], 4.2, 3.65
+
+
+[ypos2] = 1|2.1|2.9|3.7|4.5|5.7|7.2
+[xpos4] = 0.5
+[xpos5] = 1
+
+{[phases1] = Select Actions Phase
+|Reveal Actions Phase
+|Pay Energy
+|Perform Actions Phase
+|Resupply Phase
+|Check for game end
+|
+}
+{[shorts1] = play face down, wait for everyone else to do the same
+|pick up your old card first
+|least Energy left pays first
+|most Energy left acts first
+|turn the resupply disc, resupply Offer spaces & markets
+|Energy: one more turn\13\Modules/Projects: immediate end
+|
+}
+
+{[phases2] = Select Actions Phase
+|Reveal Actions Phase
+|Pay Energy
+|Perform Actions Phase
+|Resupply Phase
+|Event Phase
+|Check for game end
+}
+{[shorts2] = play face down, wait for everyone else to do the same
+|pick up your old card first
+|least Energy left pays first
+|most Energy left acts first
+|turn the resupply disc, resupply Offer spaces & markets
+|discard the Current Event, move the Next Event to Current Event, draw a new Next Event
+|Energy: one more turn\13\Modules/Projects: immediate end
+}
+
+[TURNRANGE1]=5-8
+[TURNRANGE2]=13-16
+[TURNRANGE]=RANGEADD([TURNRANGE1], [TURNRANGE2])
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; TITLE
+;;;;;;;;;;;;;;;;;;;;;
+<heading2> = 0, 0, 5.8, 1
+FONT = [FONT_player_aid_title]
+TEXT = [TURNRANGE1], "Turn Sequence", <heading2>, CENTER, CENTER
+TEXT = [TURNRANGE2], "Turn Sequence", <heading2>, CENTER, CENTER
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; PHASES AND EXPLANATIONS
+;;;;;;;;;;;;;;;;;;;;;
+FOR=B,1,{(phases1)}
+   FONT = [FONT_player_aid_phases]
+   TEXT = [TURNRANGE1], {phases1?B}, [xpos4], {ypos2?B}, 4.8, 0.7, LEFT, WWTOP
+   TEXT = [TURNRANGE2], {phases2?B}, [xpos4], {ypos2?B}, 4.8, 0.7, LEFT, WWTOP
+   FONT = [FONT_player_aid_phasesexplained]
+   IF = {shorts1?B} <>
+      TEXT = [TURNRANGE1], "({shorts1?B})", [xpos5], {{ypos2?B} + 0.5}, 4.6, 1.5, LEFT, WWTOP
+   ENDIF
+   TEXT = [TURNRANGE2], "({shorts2?B})", [xpos5], {{ypos2?B} + 0.5}, 4.6, 1.5, LEFT, WWTOP
+NEXT
+
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; EVENT PACKAGE SYMBOL
+;;;;;;;;;;;;;;;;;;;;;
+[EVENTICONRANGE] = RANGEADD([AIDRANGE2], [TURNRANGE2])
+PACKAGESYMBOL = [EVENTICONRANGE], "E"
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; DUPLEX
+;;;;;;;;;;;;;;;;;;;;;
+IF = [duplexbacks]
+   DUPLEX = [AIDRANGE], [TURNRANGE]
+   PRINT = DUPLEX
+ENDIF

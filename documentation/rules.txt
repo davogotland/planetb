@@ -1,0 +1,179 @@
+Planet B
+A board game by David Wallin
+
+
+Introduction
+Earth has long ago become uninhabitable, and thus, space exploration has been a natural step in the human way of life for many centuries now. A new exoplanet has just been discovered and is about to be colonized. The players of this game each represent a group of contractors trying to build the most prestigious part of this new home. In order to do this you have each been granted a set amount of Energy by the commissioner ECD Inc. (Explore, Colonize, Develop Incorporated)
+
+
+Components
+50 white cubes representing Cement
+35 grey discs representing Ore
+30 black cubes representing Oil
+40 Action cards with different backs (4 sets of 10)
+42 Module cards
+16 Project cards
+54 Event cards
+16 Goal cards
+(168 cards in total)
+4 Energy Indicators, 1 in each of 4 colors
+24 Module Activation Markers, 6 in each of 4 colors
+16 Victory Point markers worth 1 VP each
+24 Victory Point markers worth 5 VP each
+2-sided playing board
+This rule book
+
+
+Overview
+This game is played over a set of Rounds with 7 phases in each Round where players often act simultaneously. These phases are:
+1. Select Actions Phase
+2. Reveal Actions Phase
+3. Pay Energy
+4. Perform Actions Phase
+5. Resupply Phase
+6. Event Phase
+7. Check for game end
+
+Actions are performed by secretly playing an Action card (there are 12 or 13 Actions available depending on the player count). Each Action is associated with a cost payed in Energy. Energy is payed by moving down the Energy Track on the playing board. In phase 4, the Action Phase, play is not simultaneous. Here, the player with the most Energy left goes first and the player with the least Energy left goes last. It’s almost always better to go first. The idea behind this is that the player who has spent the most amount of Energy often has the most points, since they have
+performed more expensive Actions. The game can end in 3 different ways, and after it has ended, the player with the most points wins.
+
+
+Setting up the game
+First go over the decks and remove any cards not corresponding to your player count (i.e. in a 3 player game, all cards for 2 and 4 players are removed, but cards for 3/4 players stay in, as well as cards with no certain number of players on them).
+
+Use the side of the playing board corresponding to your player count, then place Resources on the Offer Spaces according to the table to the right.
+
+Shuffle the Modules and draw and reveal Modules according to the table to the right to create the Modules Market. Place the remaining Modules next to the Modules Market; this is the Modules Pile used when drawing new Modules during the Resupply Phase of the game.
+
+Shuffle the Projects and create the Projects Market by drawing and revealing 3 Projects. Then make a Projects Pile by drawing a number of Projects according to the table to the right, this time without revealing them. Place these unrevealed cards next to the Projects Market; this is the Projects Pile used when drawing new Projects during the Resupply Phase or the Event Phase of the game. Put the remaining Projects back in the box without looking at them.
+
+Shuffle the Event cards to create the Event Pile. Draw the top card and place it face up on the place for Next Event. This will be the event during the second turn of the game. The first turn of the game does not have an event.
+
+Give each player an Energy Indicator to be placed on the starting space of the Energy Track. The player who last recycled places their Energy Indicator as far to the left as possible in the starting place, and then the other players one at a time in clockwise order place their Energy Indicators to the right of the last one placed. Also give each player a number of Module Activation Markers according to the table. All in all there should be 12 Module Activation Markers handed out to the players. Give each player a Starting Out Package (concisting of 5 Cement, 4 Steel and 3 Oil).
+
+Each player also gets a set of Action cards. In a 2 or 3 player game, each player gets 12 cards (one of each card except the Mixed Offer Action card). In a 4 player game, each player gets 13 cards. Shuffle the Goals and give each player a random Goal card. These are secret, and should be kept hidden from other players. You can look at your own Goal card at any time.
+
+Each player finally shuffles their Action cards marked "Setup" and draws and reveals one. This is their first unavailable Action card and should be left face up in front of the player. The other cards should be held so that no one can guess what card another player is going to play.
+
+
+Select Actions Phase
+Each player chooses one of their Action cards and plays it face down next to their unavailable Action. Make sure all players have made their final decision about what to play before moving on to the next phase.
+
+
+Reveal Actions Phase
+Each player picks up their unavailable Action card and then flips over the card they chose in the Select Actions Phase. Finally, players pay for their actions, starting with the player that has the least amount of Energy left. Players move their Energy Indicators a number of steps down the Energy Track corresponding to the Energy cost of the Action card they have chosen.
+
+If a player finishes this movement in a space where there is already one or more Energy Indicators, that player places their indicator behind the other Energy Indicator(s) in that space.
+
+
+Action Phase
+Starting with the player that has the most Energy left, and continuing with the player that has the second most Energy left and so on, each player now performs the Actions they have chosen.
+
+In case of a tie, the player whos Energy Indicator is furthest back in the Energy space (the last one to move into that Energy space) acts first.
+
+Cement Offer
+Action costs 1 Energy to play
+The player takes the accumulated Cement from the Cement Offer Space.
+
+Ore Offer
+Action costs 2 Energy to play
+The player takes the accumulated Ore from the Ore Offer Space.
+
+Oil Offer
+Action costs 3 Energy to play
+The player takes the accumulated Oil from the Oil Offer Space.
+
+Mixed Offer (4 players only)
+Action costs 3 Energy to play
+The player takes the accumulated Resources from the Mixed Offer Space.
+
+Reserve Project
+Action costs 1 Energy to play
+This can only be used if a player has no reserved Project and also has an AAI which is not locked. If both these conditions are met, then the player may take one of the Projects from the Project Market, places it in front of themselves and places one of their AAIs on the padlock. Note that none of the icons on the Project that is being reserved has any meaning at this point. The consequences of having a reserved Project are:
+ * you are not able to reserve a Project
+ * you have one fewer AAI
+ * all actions cost you 1 Energy more
+
+Activate Modules
+Action costs 1 Energy to play
+The player activates Modules they own by paying the Activation Cost shown in the octagon on the Module card and placing an Administrative Artificial Intelligence (AAI) in the octagon. If there is no cost depicted in the octagon, the Module can't be Activated this way. The maximum number of Modules a player can have Activated at the same time depends on the number of players in the game: 6 in a 2-player game, 4 in a 3-player game and 3 in a 4-player game. If the player is out of free AAIs, the player may choose to move an AAI from an active Module, thus inactivating that Module. An AAI standing on an octagon with a padlock in it may not be moved.
+
+Sell Resources
+Action costs 2 Energy to play
+The player can sell 0 or 3 Cement, plus 0 or 2 Ore, plus 0 or 1 Oil. In a 2- and 3-player game, the sold Resources are placed back onto their respective Offer Spaces. In a 4-player game, all the sold Resources are placed onto the Mixed Offer Space. Each Resource type sold nets the player 2 Victory Points in chips. This means that a player can at most earn 6 Victory Points from one Sell.
+
+Construct Module and/or Activate Modules
+Action costs 4 Energy to play
+The player may choose one of the Modules in the Modules Market, pay the required Resources and then place it in their personal play area.
+
+If the newly constructed Module has no Activation Cost, the player must immediately place one of their AAIs on the Module. If the player has no free AAI, then the player must choose one of their Activated Modules and take the AAI from that Module, thus inactivating it. If the
+player is not allowed to move any of their AAIs, nothing happens.
+
+After the construction step is finished, the player may perform an Activate Modules action as described above.
+
+Remember to not draw any replacement Modules for the Modules Market at this stage.
+
+Starting Out Package
+Action costs 5 Energy to play
+The player receives the same amount of Resources that the player received at the beginning of the game.
+
+Construct Two Modules and/or Activate Modules
+Action costs 6 Energy to play
+The player may perform the steps described for the Action "Construct Module" twice in a row. After the finishing the construction of Modules, the player may perform an Activate Modules action as described above.
+
+This means that if the first Module to be constructed does not have an Activation Cost, that Module will be automatically activated before the construction of the second Module starts; but it also means that if the first Module has an Activation Cost, that Module cannot be activated until after the construction of the second Module is completed.
+
+Remember to not draw any replacement Modules for the Modules Market at this stage.
+
+Complete Project
+Action costs 5 Energy to play (or 7 in a 2 player game)
+The player may choose one of the Projects in the Projects Market (or a Project that they have previously reserved) that the player is eligible to Complete, pay the required Resources, and then place it in their personal play area. If there is an amount and a Resource on the right side of the Project card, the player immediately gains those Resources. Eligibility to Complete a Project depends on the icons at the bottom right of the Project card. The circle arrow icon means that the player must have spent half of their Energy to be able to Complete it. The rest of the icons refer to Module and/or Project types that the player needs to have in their personal play area in order to complete the project.
+
+Remember to not draw a replacement Project for the Projects Market at this stage.
+
+
+Choosing the same Action
+If several players have chosen the same Action during the same round, some interesting things may happen.
+
+When Constructing Modules or Completing Projects, the first player to perform the Action will have more Modules/Projects to choose from, since the Markets are Resupplied only after all players have taken their respective Actions.
+
+Sharing Bonus
+When getting Resources from the Offer Spaces, the first player to get there must offer half of the Resources rounded up to the next player in line that has played the same Action. (The Mixed Offer Space is a little different. Here, each Resource type is divided separately, Oil rounded down. 9 Resources on the Mixed Offer Space leads to an offer of 1 Oil, 2 Ore and 2 Cement.) If the second player accepts the offer, the first player gets a Sharing Bonus of 1 Energy per Resource given away. If, on the other hand, the second player refuses the offer, then the first player gets all the Resources and the second player instead gets the Sharing Bonus.
+
+If more than 2 players have played the same Action, trying to get Resources from the same Offer Space during the same Round, then there will be a circle of offers. A player who refuses an offer passes all of that offer to the next player. If everyone refuses the offer, it will return to the first player that now gets all the Resources.
+
+As soon as a player accepts the offer being passed around, the Action is complete for all players involved and the player that last refused the offer gets the Sharing Bonus.
+
+The maximum Sharing Bonus depends on the number of players in the game. In a 2 player game, 4 Energy is max, and in a 3 or 4 player game, 3 Energy is the maximum Sharing Bonus.
+
+The player that first took the Resources from the Offer Space being shared cannot refuse the Resources once they have been refused by all the other players that played the same Action card.
+
+Refusing an offer of Resources like this is a great way to improve your position for the next turn. It might seem as though you are just wasting a turn, but sometimes being first to act can be really important!
+
+
+The Catch Up Rule
+After all the Energy costs and Sharing Bonuses have been calculated, look for gaps in Energy between players that are "neighbors" on the Energy track. If there is ever 6 or more Energy between two neighboring players (8 in a 2 player game), then the player with the lower Energy plus all players with lower Energy than that player are restricted to spending no more than 3 Energy during the next round.
+
+
+Resupply Phase
+Draw and reveal Projects until there are 3 Projects in the Projects Market. If there are not enough cards to fill the Projects Market, draw the remaining Projects and add them to the Projects Market.
+
+Draw and reveal Modules until the Modules Market has been refilled. If there are not enough Modules left, the game ends.
+
+Restock the Offer Spaces according to the resupply table on the board and then move the marker one step to the right in the resupply table, or place it back on the first and leftmost column in the resupply table if needed.
+
+
+Ending the game
+Now check if any players are at or below 0 Energy. If so, one final round is played. Only players with more than 0 Energy gets to take part of this final round. If no such player exists, the game is over.
+
+Next, look at the Modules Market. If there are not enough Modules in it to satisfy the needed number of Modules at your player count (5 in a 2 player game, 6 in a 3 player game and 7 in a 4 player game), including the effects of any Event card, then the game is over.
+
+Now look at the Projects Market. If it is empty, the game is over.
+
+
+Scoring and winning the game
+Each player scores points for their Modules, Projects, leftover Resources, unused Energy and possibly their secrete Goal. Modules with effects that makes them count as more than one Module might have an effect on scoring, but only if they are populated with an AAI. Such a Module counts towards the Grunt Worker Goal and the blue Projects, but not towards the Quality Over Quantity/Quantity Over Quality Goals, since there is only one Module with an actual point value.
+
+Leftover Cement is worth 1 point for every full triplet. Leftover Ore is worth 1 point for every full pair. Leftover Oil is worth 1 point each. Unused Energy is worth 1 point each.
+
+Add up the points for each player. The player with the most points wins. In case of a tie, the player with the most Completed Projects wins. If there is still a tie, the player with the lowest scoring for leftover Energy wins. If there is still a tie, the player with the most leftover Cement and Ore combined wins. If there is still a tie, victory is shared (without Sharing Bonus).

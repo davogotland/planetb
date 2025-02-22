@@ -1,0 +1,217 @@
+[export]% = _TRUE_
+[exportfolder]% = .\output\tts\cards
+[exportTTS]% = _TRUE_
+[card_width] = 5.9
+[card_height] = 9.2
+
+[backsonly]% = _FALSE_
+[backs]% = _FALSE_
+[duplexbacks]% = _FALSE_
+[border_guidelines]% = MARKDOT
+
+[renderTokens] = _FALSE_
+[renderTokens]%[backsonly] = _FALSE_
+
+[border_type] = RECTANGLE
+[border_type]%[exportTTS] = ROUNDED
+PAGE = [A4PORTRAIT]
+INCLUDE = init.nde
+
+LINK = "modules.csv", firstCost, firstType, secondCost, secondType, thirdCost, thirdType, fourthCost, FourthType, points, backgroundColor, backgroundColorToBlack, name1, name2, artpath, artx, arty, artw, arth, nofplayers, activationCost, activationCurrency, effect, extraIcon, uid
+[nofCards] = {(points)}
+[MODULESRANGE] = "1-{[nofCards]}"
+[MULTIPLIERSRANGE] = "{[nofcards]+1}-{[nofcards]+4}"
+[MODULESBACKSRANGE] = "{[nofcards]+5}-{([nofcards]*2)+4}"
+[MULTIPLIERSBACKSRANGE] = "{([nofcards]*2)+5}-{([nofcards]*2)+8}"
+[MODULESANDTOKENSFRONTS] = "1-{[nofcards]+4}"
+[MODULESANDTOKENSBACKS] = "{[nofcards]+5}-{([nofcards]*2)+8}"
+[DUPLEXFRONTSRANGE] = [MODULESRANGE]
+[DUPLEXFRONTSRANGE]%[renderTokens] = [MODULESANDTOKENSFRONTS]
+[DUPLEXBACKSRANGE] = [MODULESBACKSRANGE]
+[DUPLEXBACKSRANGE]%[renderTokens] = [MODULESANDTOKENSBACKS]
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; CARD BACK FOR TTS
+;;;;;;;;;;;;;;;;;;;;;
+MACRO = MODULEBACK, (r)
+   FONT = [text_font], 16, "TB", [white]
+   RECTANGLE = (r), 0, 0, 100%, 100%, [gray6]
+   TEXT = (r), "MODULE", 0, 3, 100%, 2, CENTER, CENTER
+END
+
+IF = [exportTTS]
+   MODULEBACK = 1
+   EXPORTFULL = 1, "modulesback"
+ENDIF
+
+RECTANGLE = [MODULESRANGE], 0, 0, 100%, 100%, [white]
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; CARD BACKGROUND
+;;;;;;;;;;;;;;;;;;;;;
+;IMAGE=[MODULESRANGE], [MODULES_CARD_ART]stars[IMAGE_FILE_TYPE], 0, 0, 5.9, 9.2, 0, N
+;RECTANGLE=[MODULESRANGE], 0, 0, 5.9, 9.2, [black]
+RECTANGLE = [MODULESRANGE], 0, 0, 5.9, 3, [backgroundColorToBlack]
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; CARD ART
+;;;;;;;;;;;;;;;;;;;;;
+;IMAGE=[MODULESRANGE], CONCAT1({artpath?§},{name?§},[IMAGE_FILE_TYPE]), [artx], [arty], [artw], [arth], 0, N
+;IF=[name1]=Storage Pods
+;   IMAGE=[MODULESRANGE], CONCAT1({artpath?§},{name1?§},[IMAGE_FILE_TYPE]), [artx], [arty], [artw], [arth], 0, N
+;ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; MODULE NAME
+;;;;;;;;;;;;;;;;;;;;;
+FONT = [FONT_module_name]
+IF=[name2]=oneliner
+   TEXT=[MODULESRANGE], [name1], 1.4, 0.65, 3.1, 0.5, CENTER, TOP
+ELSE
+   TEXT=[MODULESRANGE], [name1], 1.4, 0.4, 3.1, 0.5, CENTER, TOP
+   TEXT=[MODULESRANGE], [name2], 1.4, 0.95, 3.1, 0.5, CENTER, TOP
+ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; MODULE TYPE
+;;;;;;;;;;;;;;;;;;;;;
+ELLIPSE=[MODULESRANGE], 0.5, 0.5, 0.8, 0.8, [black], [backgroundColor], 0.02
+IF=[backgroundColor]=[infrastructure]
+   ICONS=[MODULESRANGE], I, 0.65, 0.65, 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+ELSEIF=[backgroundColor]=[security]
+   ICONS=[MODULESRANGE], S, 0.65, 0.65, 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+ELSEIF=[backgroundColor]=[science]
+   ICONS=[MODULESRANGE], E, 0.65, 0.65, 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+ELSE
+   ICONS=[MODULESRANGE], C, 0.65, 0.65, 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; POINTS
+;;;;;;;;;;;;;;;;;;;;;
+;ELLIPSE = [MODULESRANGE], 4.6, 0.5, 0.8, 0.8, [black], [pointsbackground], 0.02
+;IMAGE = [MODULESRANGE], "[PATH_TO_IMAGES]pointsbg[IMAGE_FILE_TYPE]", 4.5, 0.4, 1, 1, 0, N
+;FONT = [FONT_module_points]
+;TEXT = [MODULESRANGE], [points], 4.6, 0.57, 0.8, 0.8, CENTER, TOP
+IMAGE = [MODULESRANGE], "[PATH_TO_IMAGES]vp[points][IMAGE_FILE_TYPE]", 4.5, 0.4, 1, 1, 0, NP
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; COSTS
+;;;;;;;;;;;;;;;;;;;;;
+[costspace] = 0.8
+[cost1x] = 1.2
+[cost2x] = [cost1x] + [costspace]
+[cost3x] = [cost2x] + [costspace]
+[cost4x] = [cost3x] + [costspace]
+[costy] = 8.25
+
+FONT = [FONT_module_cost]
+RECTANGLE = [MODULESRANGE], 0, 7.9, 5.9, 1.3, [backgroundColor]
+;IF=[firstCost]>0
+   PRINTRESOURCE = [MODULESRANGE], [cost1x], [costy], [firstCost], [firstType]
+;ENDIF
+;IF=[secondCost]>0
+   PRINTRESOURCE = [MODULESRANGE], [cost2x], [costy], [secondCost], [secondType]
+;ENDIF
+;IF=[thirdCost]>0
+   PRINTRESOURCE = [MODULESRANGE], [cost3x], [costy], [thirdCost], [thirdType]
+;ENDIF
+;IF=[fourthCost]>0
+   PRINTRESOURCE = [MODULESRANGE], [cost4x], [costy], [fourthCost], [fourthType]
+;ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; ACTIVATION
+;;;;;;;;;;;;;;;;;;;;;
+;ELLIPSE = [MODULESRANGE], 4.42, 7.98, 1, 1, [black], EMPTY, 0.04
+;POLYGON = [MODULESRANGE], 4.42, 7.98, 1, 1, 8, 22.5, [black], EMPTY, 0.04
+IMAGE = [MODULESRANGE], "[PATH_TO_IMAGES]octagon[IMAGE_FILE_TYPE]", 4.22, 7.78, 1.4, 1.4, 0, N
+
+IF=[activationCurrency]=mandatory
+   IMAGE = [MODULESRANGE], "[PATH_TO_IMAGES]padlock[IMAGE_FILE_TYPE]", 4.62, 8.18, 0.6, 0.6, 0, N
+ELSEIF=[activationCost]>0
+   PRINTRESOURCE = [MODULESRANGE], 4.62, 8.188, [activationCost], [activationCurrency]
+ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; EFFECT
+;;;;;;;;;;;;;;;;;;;;;
+[additionaliconx] = 2.1
+[additionalicony] = 7.15
+[alsoiconx] = 1.7
+[alsoicony] = 7.15
+
+FONT = [FONT_module_description]
+IF=[extraIcon]=""
+   TEXT = [MODULESRANGE], [effect], 0.5, 2, 4.9, 5.6, LEFT, WWBOTTOM
+ELSE
+   IF=[extraIcon]=[backgroundColor]
+      TEXT = [MODULESRANGE], "This Module counts as being an additional", 0.5, 2, 4.9, 5.6, LEFT, WWBOTTOM
+      IF=[extraIcon]=[infrastructure]
+         ICONS = [MODULESRANGE], I, [additionaliconx], [additionalicony], 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+      ELSEIF=[extraIcon]=[security]
+         ICONS = [MODULESRANGE], S, [additionaliconx], [additionalicony], 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+      ELSEIF=[extraIcon]=[science]
+         ICONS = [MODULESRANGE], E, [additionaliconx], [additionalicony], 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+      ELSE
+         ICONS = [MODULESRANGE], C, [additionaliconx], [additionalicony], 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+      ENDIF
+   ELSE
+      TEXT = [MODULESRANGE], "This Module counts as also being a", 0.5, 2, 4.9, 5.6, LEFT, WWBOTTOM
+      ICONS = [MODULESRANGE], C, [alsoiconx], [alsoicony], 1, 0.5, 0.5, 0.5, 0, N, LEFT, TOP
+   ENDIF
+ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; PLAYERS
+;;;;;;;;;;;;;;;;;;;;;
+FONT = [FONT_nof_players]
+IF=_NOT_ ({nofplayers?§}=0)
+   TEXT = [MODULESRANGE], [nofplayers], 0.35, 8.2, 2, 0.8, LEFT, BOTTOM
+ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; UID
+;;;;;;;;;;;;;;;;;;;;;
+FONT = [FONT_uid_white]
+TEXT=[MODULESRANGE], [uid], 4.95, 0.1, 0.6, 0.8, LEFT, TOP
+
+IF = [exportTTS]
+   DISPLAY = "[exportfolder]\modules.png", 1, 41, 7
+ENDIF
+
+;;;;;;;;;;;;;;;;;;;;;
+;;; MULTIPLIER TOKENS, BACKS OR BOTH
+;;;;;;;;;;;;;;;;;;;;;
+[multipliers] = FRAMEBOX(0.5, 0.5, 4, 8, 4, 4)
+
+IF = [backsonly]
+   MODULEBACK = [MODULESRANGE]
+ELSE
+   IF = _NOT_ [exportTTS]
+      IF = [renderTokens]
+         ELLIPSE = [MULTIPLIERSRANGE], <multipliers, CC, 95%%, 95%%>, #000000#111111#222222#333333#444444
+         RECTANGLE = [MULTIPLIERSRANGE], <multipliers, CC, 40%%, 40%%>, #1133FF#1133EE#1133DD#1133CC#1133BB
+         FONT = [FONT_multiplier_large]
+         TEXT = [MULTIPLIERSRANGE], "5", <multipliers, CL, 15%%, 40%%>, RIGHT, CENTER
+         FONT = [FONT_multiplier_small]
+         TEXT = [MULTIPLIERSRANGE], "x", <multipliers, CL, 25%%, 18%%>, RIGHT, TOP
+      ENDIF
+
+      IF = [backs] _OR_ [duplexbacks]
+         MODULEBACK = [MODULESBACKSRANGE]
+      ENDIF
+
+      IF = [duplexbacks]
+         IF = [renderTokens]
+            RECTANGLE = [MULTIPLIERSBACKSRANGE], 0, 0, 100%, 100%, [white]
+         ENDIF
+
+         DUPLEX = [DUPLEXFRONTSRANGE], [DUPLEXBACKSRANGE]
+         PRINT = DUPLEX
+      ENDIF
+   ENDIF
+ENDIF
+
+;EXPORTFULL = 43, "statustokens"
+;EXPORTFULL = 44, "multipliers"

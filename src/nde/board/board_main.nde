@@ -1,0 +1,198 @@
+[border_type] = NONE
+[card_width] = 42
+[card_height] = 42
+[exportfolder] = .\board\composite
+[export] = _TRUE_
+[inverted] = _FALSE_
+[wireframe] = _TRUE_
+[numberframe] = _TRUE_
+;_FALSE_
+;_TRUE_
+INCLUDE = init.nde
+PAGE = [A2LANDSCAPE]
+CARDS = 2
+[ALL] = 1-2
+
+RECTANGLE = [ALL], 0%, 0%, 100%, 100%, [bgcol]
+
+IF = [export]
+   ;IMAGE = [ALL], [exportfolder]\board_main_8_color_segments.png, 0, 0, 42, 42, 0, N
+ENDIF
+
+[textOffset] = 0.4
+[higherTextOffset] = 0.6
+[lowerTextOffset] = 1.5
+[position] = 1
+[size] = 40
+[c] = ([size] / 2) + [position]
+IF = [wireframe]
+   ELLIPSE = [ALL], [position], [position], [size], [size], [drawcol], EMPTY, 0.08
+ENDIF
+[nofThickLines] = 8
+[nofLines2p] = 64
+[nofLines3to4p] = 48
+[startingEnergy] = [nofLines2p]|[nofLines3to4p]
+[bigNumbers] = 8
+[smallNumbers] = 64
+[numbers] = 16
+
+[lines2p] = FRAMECLOCK([position], [position], [size], [size], 0, 0, [nofLines2p])
+[lines3to4p] = FRAMECLOCK([position], [position], [size], [size], 0, 0, [nofLines3to4p])
+[bigNums] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [bigNumbers], -43)
+
+[nums2psec1] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 5, 42)
+[nums2psec2] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 50, 87)
+[nums2psec3] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 95, 132)
+[nums2psec4] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 140, 177)
+[nums2psec5] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 185, 222)
+[nums2psec6] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 230, 267)
+[nums2psec7] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 275, 312)
+[nums2psec8] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines2p], 1, , 320, 357)
+
+[nums3to4psec1] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 5, 42)
+[nums3to4psec2] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 50, 87)
+[nums3to4psec3] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 95, 132)
+[nums3to4psec4] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 140, 177)
+[nums3to4psec5] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 185, 222)
+[nums3to4psec6] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 230, 267)
+[nums3to4psec7] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 275, 312)
+[nums3to4psec8] = FRAMECLOCK([position] + [higherTextOffset], [position] + [higherTextOffset], [size] - ([higherTextOffset] * 2), [size] - ([higherTextOffset] * 2), 1, 1, [nofLines3to4p], 1, , 320, 357)
+
+IF = [wireframe]
+   LINE = 1, [c], [c], <lines2p*, PCC>, [drawcol], 0.08
+   LINE = 2, [c], [c], <lines3to4p*, PCC>, [drawcol], 0.08
+ENDIF
+
+FONT = Arial, 24, T, [drawcol]
+IF = [numberframe]
+   TEXT = [ALL], {[startingEnergy] - ((° - 1) * [startingEnergy] / [bigNumbers])}, <bigNums*>, CENTER, CENTER, ((° - 1) * (360 / [bigNumbers])) + 4
+ENDIF
+
+FONT = Arial, 12, T, [drawcol]
+IF = [numberframe]
+   TEXT = 1, {64 - °}, <nums2psec1*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 8
+   TEXT = 1, {56 - °}, <nums2psec2*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 53
+   TEXT = 1, {48 - °}, <nums2psec3*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 98
+   TEXT = 1, {40 - °}, <nums2psec4*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 143
+   TEXT = 1, {32 - °}, <nums2psec5*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 188
+   TEXT = 1, {24 - °}, <nums2psec6*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 233
+   TEXT = 1, {16 - °}, <nums2psec7*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 278
+   TEXT = 1, {8 - °}, <nums2psec8*>, CENTER, CENTER, ((° - 1) * (360 / 64)) + 323
+
+   TEXT = 2, {48 - °}, <nums3to4psec1*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 8
+   TEXT = 2, {42 - °}, <nums3to4psec2*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 53
+   TEXT = 2, {36 - °}, <nums3to4psec3*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 98
+   TEXT = 2, {30 - °}, <nums3to4psec4*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 143
+   TEXT = 2, {24 - °}, <nums3to4psec5*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 188
+   TEXT = 2, {18 - °}, <nums3to4psec6*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 233
+   TEXT = 2, {12 - °}, <nums3to4psec7*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 278
+   TEXT = 2, {6 - °}, <nums3to4psec8*>, CENTER, CENTER, ((° - 1) * (360 / 48)) + 323
+ENDIF
+
+[reduction] = 5
+[size] = [size] - [reduction]
+[offset] = [reduction] / 2
+[position] = [position] + [offset]
+IF = [wireframe]
+   ELLIPSE = [ALL], [position], [position], [size], [size], [drawcol], [bgcol], 0.08
+ENDIF
+
+[penaltytrack] = FRAMEBOX(19.75, 3.52, 2.5, 14.7, 2.5, 1.47)
+[penaltyvptrack] = FRAMEBOX(19.75, 3.52, 2.5, 14.7, 2.4, 1.47)
+
+[penalties] = 0|-3|-5|-7|-9|-11|-12|-13|-14|-15
+
+IF = [wireframe]
+   RECTANGLE = [ALL], <penaltytrack*>, [drawcol], EMPTY, 0.08
+ENDIF
+
+FONT = Arial, 32, T, [drawcol]
+
+IF = [numberframe]
+   TEXT = [ALL], {penalties?°}, <penaltytrack*, CL, 1.7, 1>, RIGHT, CENTER
+   IMAGE = [ALL], "[PATH_TO_IMAGES]vp[IMAGE_FILE_TYPE]", <penaltyvptrack*, CR, 0.626, 0.547>
+ENDIF
+
+<buildactionname> = 25.5, 11.8, 9, 1
+<buildaction> = 25, 13, 9, 14
+<buildactioninstruction1> = 26, 13.5, 7.7, 2
+<completeproject> = 26, 15, 7, 2.1
+<buildor> = 26, 17.3, 7, 1
+<constructmodules> = 26, 18.5, 7, 6.4
+<buildactioninstruction2> = 26, 25.2, 7.7, 1.5
+<resourceactionname> = 13, 26.8, 9, 1
+<resourceaction> = 12.5, 28, 17, 7.5
+<resourceinstruction1> = 12.75, 28.2, 16.5, 2.5
+<resourceinstruction2> = 12.75, 31, 16.5, 4
+<resourceinstruction3> = 12.75, 34.3, 16.5, 0.9
+
+HTMLIMAGE = [ALL], "(ENERGY)", "[PATH_TO_IMAGES]energy[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLIMAGE = [ALL], "(1ENERGY)", "[PATH_TO_IMAGES]energy1[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLIMAGE = [ALL], "(OIL)", "[PATH_TO_IMAGES]oil[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLIMAGE = [ALL], "(1OIL)", "[PATH_TO_IMAGES]oil1[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLIMAGE = [ALL], "(STEEL)", "[PATH_TO_IMAGES]steel[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLIMAGE = [ALL], "(2STEEL)", "[PATH_TO_IMAGES]steel2[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLIMAGE = [ALL], "(CEMENT)", "[PATH_TO_IMAGES]cement[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLIMAGE = [ALL], "(3CEMENT)", "[PATH_TO_IMAGES]cement3[IMAGE_FILE_TYPE]", 0.8, 0.8, PB
+HTMLFONT = "rules", Arial, 20, , [drawcol]
+HTMLFONT = "fineprint", Arial, 12, I, [drawcol]
+HTMLFONT = "actions", Arial, 20, , [drawcol], CENTER
+HTMLFONT = "actionnames", Arial, 28, B, [drawcol]
+HTMLFONT = "or", Arial, 20, , [drawcol], CENTER
+HTMLFONT = "resources", Arial, 24, B, [drawcol]
+
+HTMLTEXT = [ALL], "<actionnames>Build Action</actionnames>", <buildactionname>, [bgcol], 0, T
+RECTANGLE = [ALL], <buildaction>, [drawcol], EMPTY, 0.2
+HTMLTEXT = [ALL], "<rules>Pay (1ENERGY), and then either</rules>", <buildactioninstruction1>, [bgcol], 0, T
+
+RECTANGLE = [ALL], <completeproject>, [drawcol], EMPTY, 0.08
+HTMLTEXT = [ALL], "<actions>Complete/Reserve<br>a Project</actions>", <completeproject, CC, 90%%, 80%%>, [bgcol], 0, T
+
+HTMLTEXT = [ALL], "<or>OR</or>", <buildor, CC, 80%%, 80%%>, [bgcol], 0, T
+
+RECTANGLE = [ALL], <constructmodules>, [drawcol], EMPTY, 0.08
+HTMLTEXT = [ALL], "<actions>Construct<br>up to 2 Modules<br>(2nd costs (1ENERGY) less)<br><br>THEN<br><br>Activate Modules</actions>", <constructmodules, CC, 90%%, 90%%>, [bgcol], 0, T
+HTMLTEXT = [ALL], "<fineprint>If anything was Completed or Constructed, clear your cubes from the Resource Action.</fineprint>", <buildactioninstruction2>, [bgcol], 0, T
+
+HTMLTEXT = [ALL], "<actionnames>Resource Action</actionnames>", <resourceactionname>, [bgcol], 0, T
+RECTANGLE = [ALL], <resourceaction>, [drawcol], EMPTY, 0.2
+HTMLTEXT = [ALL], "<rules>Pay </rules><resources>(1ENERGY) / </resources><rules>cube in your color on this space, and then<br><br>Pay </rules><resources>(ENERGY)</resources><rules> and take one type of resource according to:</rules>", <resourceinstruction1, TC, 100%%, 100%%>, [bgcol], 0, T
+
+[cellwidth] = 0.95
+[rowwidth] = {[cellwidth] * 16}
+[tabley] = 30.6
+[rowheight] = 0.9
+[row1] = [tabley]
+[row2] = [row1] + [rowheight]
+[row3] = [row2] + [rowheight]
+[row4] = [row3] + [rowheight]
+[typex] = 12.75
+[rowx] = 13.75
+
+[f_costtypes] = FRAMEBOX([typex], [row1], 1, {[rowheight] * 4}, 1, [rowheight], N)
+[f_costtable_energyrow] = FRAMEBOX([rowx], [row1], [rowwidth], [rowheight], [cellwidth], [rowheight], N)
+[f_costtable_cementrow] = FRAMEBOX([rowx], [row2], [rowwidth], [rowheight], [cellwidth], [rowheight], N)
+[f_costtable_steelrow] = FRAMEBOX([rowx], [row3], [rowwidth], [rowheight], [cellwidth], [rowheight], N)
+[f_costtable_oilrow] = FRAMEBOX([rowx], [row4], [rowwidth], [rowheight], [cellwidth], [rowheight], N)
+
+[d_costtypes] = energy|cement|steel|oil
+[d_energycosts] = 1|2|3|4|5|6|7|8|9|10|11|12|13|14|15|16
+[d_cementoutput] = 3|6|8|10|12|13|15|16|18|19|20|21|21|22|23|24
+[d_steeloutput] = 2|4|5|6|8|9|10|11|12|12|13|14|14|15|15|16
+[d_oiloutput] = 1|2|2|3|4|4|5|5|6|6|6|7|7|7|7|8
+
+IMAGE = [ALL], "[PATH_TO_IMAGES]{d_costtypes?°}[IMAGE_FILE_TYPE]", <f_costtypes*, CC, 90%%, 90%%>, 0, P
+FONT = Arial, 20, , [drawcol]
+TEXT = [ALL], "{d_energycosts?°}", <f_costtable_energyrow*, CC, 90%%, 90%%>, CENTER, CENTER
+TEXT = [ALL], "{d_cementoutput?°}", <f_costtable_cementrow*, CC, 90%%, 90%%>, CENTER, CENTER
+TEXT = [ALL], "{d_steeloutput?°}", <f_costtable_steelrow*, CC, 90%%, 90%%>, CENTER, CENTER
+TEXT = [ALL], "{d_oiloutput?°}", <f_costtable_oilrow*, CC, 90%%, 90%%>, CENTER, CENTER
+LINE = [ALL], <f_costtypes1, PBL>, <f_costtable_energyrow16, PBR>, [drawcol], 0.04
+LINE = [ALL], <f_costtypes1, PTR>, <f_costtypes4, PBR>, [drawcol], 0.04
+
+HTMLTEXT = [ALL], "<rules>Finally, add 1 cube in your color to this space.</rules>", <resourceinstruction3, BC, 100%%, 100%%>, [bgcol], 0, T
+
+IF = [export]
+   EXPORTFULL = 1, board_main_2p
+   EXPORTFULL = 2, board_main_3to4p
+ENDIF
