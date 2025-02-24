@@ -1,0 +1,317 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;
+;; Creates magic labels:
+;;
+;; DEPENDING ON [inverted] (default value _FALSE_)
+;; [bgcol] (white or black)
+;; [drawcol] (black or white)
+;; [invextension] (empty string or _inv)
+;;
+;; DEPENDING ON [exportfolder] (default value .)
+;; [exportfolder] (.)
+;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; COLORS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;[infrastructure] = #BB4433#FF8877@90
+;[security] = #777777#BBBBBB@90
+;[science] = #7788CC#8899FF@90
+;[commerce] = #BBBB44#FFFF88@90
+;[infrastructurebackground] = #000000#881100@90
+;[securitybackground] = #000000#666666@90
+;[sciencebackground] = #000000#445599@90
+;[commercebackground] = #000000#888811@90
+;[infrastructure] = #94194a#a22758@90
+;[security] = #0d5d74#16738F@90
+;[science] = #3039d7#6066d7@90
+;[commerce] = #b59e40#d4c24c@90
+;[infrastructurebackground] = #000000#a22758@90
+;[securitybackground] = #000000#16738F@90
+;[sciencebackground] = #000000#6066d7@90
+;[commercebackground] = #000000#d4c24c@90
+
+[infrastructure] = #c6787c
+[security] = #a4ad77
+[science] = #7288A7
+[commerce] = #ca9b6c
+[infrastructurebackground] = #000000#c6787c@90
+[securitybackground] = #000000#a4ad77@90
+[sciencebackground] = #000000#7288A7@90
+[commercebackground] = #000000#ca9b6c@90
+
+[pointsbackground] = #005500#229922#44BB44#55EE55@90
+[black] = #000000
+[white] = #FFFFFF
+[red] = #FF0000
+[green] = #00FF00
+[blue] = #0000FF
+[yellow] = #FFFF00
+[gray6] = #666666
+[gray9] = #999999
+[grayB] = #BBBBBB
+[grayD] = #DDDDDD
+[darkred] = #880000
+[gold] = #FFDF00
+[petrol] = #6EA099
+[purple] = #a1787c
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; INIT
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[border_type]% = ROUNDED
+[border_color]% = [black]
+[border_thickness]% = 0.15
+[border_guidelines]% = DOTTED
+[border_guidecolor]% = [red]
+[border_marksize]% = 1
+[custom_border_width_round]% = 5
+[custom_border_height_round]% = 5
+
+[gap_horizontal]% = 0
+[gap_vertical]% = 0
+
+[margin_left]% = 1
+[margin_right]% = 1
+[margin_top]% = 1
+[margin_bottom]% = 1
+
+[dpi_number]% = 300
+[exportTTS]% = _FALSE_
+[dpi_number]%[exportTTS] = 150
+
+;[card_width]% = -1
+;[card_height]% = -1
+;[card_width_not_set] = [card_width] = -1
+;[card_height_not_set] = [card_height] = -1
+
+;IF = [card_width_not_set] _OR_ [card_height_not_set]
+;   IMAGE = , "YOU FORGOT TO SET THE CARD SIZE!!!", 0, 0, 0, 0
+;ENDIF
+
+CARDSIZE = [card_width], [card_height]
+BORDER = [border_type], [border_color], [border_thickness], [border_guidelines], [border_guidecolor], [border_marksize]
+DPI = [dpi_number]
+MARGINS = [margin_left], [margin_right], [margin_top], [margin_bottom]
+GAP = [gap_horizontal], [gap_vertical]
+
+;[inverted] = _FALSE_
+;[export] = _FALSE_
+;[exportfolder] = .\board\pieces
+
+[exportedtype]% = png
+[inverted]% = _FALSE_
+[export]% = _FALSE_
+[exportfolder]% = .
+[invextension] =
+[invextension]%[inverted] = _inv
+[bgcol] = [white]
+[bgcol]%[inverted] = [black]
+[drawcol] = [black]
+[drawcol]%[inverted] = [white]
+[renderTokens]% = _TRUE_
+
+[packageiconx] = {[card_width]-0.65}
+[packageicony] = {[card_height]-0.65}
+[packageiconw] = 0.4
+[packageiconh] = 0.4
+
+;<packageiconframe> = 89.689%,93.205%,6.809%,4.487%
+<packageiconframe> = [packageiconx], [packageicony], [packageiconw], [packageiconw]
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; IMAGES
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[PATH_TO_IMAGES]=..\..\art\icons\
+[PROJECTS_CARD_ART]=..\..\art\images\projects\
+[MODULES_CARD_ART]=card_art\modules\
+[IMAGE_FILE_TYPE]=.png
+ICON = , H, "[PATH_TO_IMAGES]half[IMAGE_FILE_TYPE]"
+ICON = , I, "[PATH_TO_IMAGES]\categories\infrastructure[IMAGE_FILE_TYPE]"
+ICON = , J, "[PATH_TO_IMAGES]\categories\infrastructure_inv[IMAGE_FILE_TYPE]"
+ICON = , S, "[PATH_TO_IMAGES]\categories\security[IMAGE_FILE_TYPE]"
+ICON = , T, "[PATH_TO_IMAGES]\categories\security_inv[IMAGE_FILE_TYPE]"
+ICON = , E, "[PATH_TO_IMAGES]\categories\science[IMAGE_FILE_TYPE]"
+ICON = , F, "[PATH_TO_IMAGES]\categories\science_inv[IMAGE_FILE_TYPE]"
+ICON = , C, "[PATH_TO_IMAGES]\categories\commerce[IMAGE_FILE_TYPE]"
+ICON = , D, "[PATH_TO_IMAGES]\categories\commerce_inv[IMAGE_FILE_TYPE]"
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; PAGE SETTINGS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[A4LANDSCAPE] = 21, 29.7, LANDSCAPE, HV
+[A4PORTRAIT] = 21, 29.7, PORTRAIT, HV
+[A3LANDSCAPE] = 29.7, 42, LANDSCAPE, HV
+[A3PORTRAIT] = 29.7, 42, PORTRAIT, HV
+[A2LANDSCAPE] = 42, 59.4, LANDSCAPE, HV
+[A2PORTRAIT] = 42, 59.4, PORTRAIT, HV
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; FONT SETTINGS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+[id_font] = "Arial"
+[text_font] = "Nord"
+[multiplier_font] = "Nord"
+[number_font] = "Nord"
+
+;[text_font] = "Arial"
+;[multiplier_font] = "Arial"
+
+[FONT_player_aid_title] = [text_font], 14, "TB", [black]
+[FONT_player_aid_actions] = [text_font], 12, "TB", [black]
+[FONT_player_aid_actionsexplained] = [text_font], 10, "T", [black]
+[FONT_player_aid_phases] = [text_font], 12, "TB", [black]
+[FONT_player_aid_phasesexplained] = [text_font], 8, "TI", [black]
+[FONT_player_aid_optionalphase] = [text_font], 10, "TB", [black]
+
+[FONT_nof_players] = [text_font], 8, T, [black]
+[FONT_expansion_icon] = [text_font], 6, TI, [black]
+[FONT_uid] = [id_font], 8, TI, [black]
+[FONT_uid_white] = [id_font], 8, TI, [white]
+
+[FONT_vp_tokens] = [text_font], 14, TB, [black]
+[FONT_multiplier_large] = [multiplier_font], 20, TB, [white]
+[FONT_multiplier_small] = [multiplier_font], 16, TB, [white]
+
+[FONT_project_name] = [text_font], 12, T, [white]
+[FONT_project_cost] = [text_font], 12, TB, [black]
+[FONT_project_return] = [text_font], 12, TB, [black]
+[FONT_project_points] = [text_font], 16, TB, [gold]
+[FONT_project_dynamicpoints] = [text_font], 32, TB, [gold]
+[FONT_project_dynamicpoints_INV] = [text_font], 24, TB, [white]
+[FONT_project_points_explained] = [text_font], 9, TB, [white]
+[FONT_module_name] = [text_font], 12, T, [white]
+[FONT_module_cost] = [number_font], 12, TB, [black]
+[FONT_module_description] = [text_font], 10, T, [black]
+[FONT_module_points] = [number_font], 16, T, [gold]
+[FONT_action_name] = [text_font], 12, "T", [black]
+[FONT_action_cost] = [text_font], 12, "TB", [black]
+[FONT_action_gain] = [text_font], 12, "TB", [black]
+[FONT_action_description] = [text_font], 12, "T", [black]
+[FONT_action_explanation] = [text_font], 10, "T", [black]
+[FONT_action_sell_explanation] = [text_font], 10, "T", [white]
+[FONT_action_setup] = [text_font], 10, "T", [black]
+[FONT_event_name] = [text_font], 18, T, [black]
+[FONT_event_description] = [text_font], 12, TB, [black]
+[FONT_event_explanation] = [text_font], 10, T, [black]
+[FONT_goal_name] = [text_font], 18, T, [black]
+[FONT_goal_description] = [text_font], 10, T, [black]
+[FONT_goal_vp] = [text_font], 12, TB, [black]
+[FONT_tokens_vp] = [text_font], 24, TB, [black]
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; OFFSETS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;[cement_offsetx]=0.34
+;[cement_offsety]=0.15
+;[cement_width]=0.45
+;[cement_height]=0.45
+;[steel_offsetx]=0.34
+;[steel_offsety]=0.125
+;[steel_width]=0.5
+;[steel_height]=0.5
+;[oil_offsetx]=0.27
+;[oil_offsety]=0.15
+;[oil_width]=0.45
+;[oil_height]=0.45
+;[energy_offsetx]=0.36
+;[energy_offsety]=0.15
+;[energy_width]=0.3
+;[energy_height]=0.45
+;[vp_offsetx]=0.32
+;[vp_offsety]=0.1
+;[vp_width]=0.6
+;[vp_height]=0.6
+
+[cement_offsetx]=-0.1
+[cement_offsety]=0.15
+[cement_width]=0.45
+[cement_height]=0.45
+[steel_offsetx]=-0.1
+[steel_offsety]=0.15
+[steel_width]=0.5
+[steel_height]=0.5
+[oil_offsetx]=-0.18
+[oil_offsety]=0.05
+[oil_width]=0.6
+[oil_height]=0.6
+[energy_offsetx]=-0.07
+[energy_offsety]=0.01
+[energy_width]=0.4
+[energy_height]=0.6
+[vp_offsetx]=-0.15
+[vp_offsety]=0.1
+[vp_width]=0.6
+[vp_height]=0.6
+
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; MACROS
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+MACRO = PRINTTYPE, (card_range), (x), (y), (type)
+   IMAGE=(card_range), JOIN([PATH_TO_IMAGES], (type), [IMAGE_FILE_TYPE]), (x), (y), 0.6, 0.6, 0, pN
+END
+
+MACRO = PRINTRESOURCE, (card_range), (x), (y), (amount), (type)
+   IF=(amount)>0
+      IMAGE=(card_range), [PATH_TO_IMAGES](type)\(type)(amount)[IMAGE_FILE_TYPE],(x), (y), 0.6, 0.6, 0, PN
+   ENDIF
+END
+MACRO = PRINTAMOUNTS, (card_range), (gainorcost), (cement), (steel), (oil), (energy)
+   IF = (cement) > 0
+      TEXT = (card_range), "(cement) [resource_a]", [leftupper(gainorcost)]
+      
+      IF = (oil) > 0
+         TEXT = (card_range), "(oil) [resource_c]", [leftlower(gainorcost)]
+      ENDIF
+   ELSEIF = (oil) > 0
+      TEXT = (card_range), "(oil) [resource_c]", [leftupper(gainorcost)]
+   ENDIF
+   
+   IF = (steel) > 0
+      TEXT = (card_range), "(steel) [resource_b]", [rightupper(gainorcost)]
+      
+      IF = (energy) > 0
+         TEXT = (card_range), "(energy) [resource_track]", [rightlower(gainorcost)]
+      ENDIF
+   ELSEIF = (energy) > 0
+      TEXT = (card_range), "(energy) [resource_track]", [rightupper(gainorcost)]
+   ENDIF
+END
+MACRO = PACKAGESYMBOL, (r), (name)
+   FONT = [FONT_expansion_icon]
+   TEXT = (r), (name), <packageiconframe>, CENTER, CENTER
+   ELLIPSE = (r), <packageiconframe>, [black], EMPTY, 0.04
+END
+MACRO = EXPORTFULL, (r), (name)
+   EXPORTPARTTOSUBFOLDER = (r), "", (name), 0, 0, 100%, 100%
+END
+MACRO = EXPORTPART, (r), (name), (x), (y), (w), (h)
+   EXPORTPARTTOSUBFOLDER = (r), "", (name), (x), (y), (w), (h)
+END
+MACRO = EXPORTFULLTOSUBFOLDER, (r), (sub), (name)
+   EXPORTPARTTOSUBFOLDER = (r), (sub), (name), 0, 0, 100%, 100%
+END
+MACRO = EXPORTPARTTOSUBFOLDER, (r), (sub), (name), (x), (y), (w), (h)
+   IF = [export]
+      IF = (sub) <> ""
+         SAVE = (r), [exportfolder]\(sub)\(name)[invextension].[exportedtype], (x), (y), (w), (h), [bgcol]
+      ELSE
+         SAVE = (r), [exportfolder]\(name)[invextension].[exportedtype], (x), (y), (w), (h), [bgcol]
+      ENDIF
+   ENDIF
+END
+MACRO = MANUALBORDER, (r)
+   ROUNDRECT = (r), {[border_thickness] / 2}, {[border_thickness] / 2}, {[card_width] - [border_thickness]}, {[card_height] - [border_thickness]}, [border_color], EMPTY, [border_thickness], [custom_border_width_round], [custom_border_height_round]
+END
+MACRO = DECKTEMPLATE, (name), (nofCards), (width)
+   IF = [exportTTS]
+      DISPLAY = "[exportfolder]\(name).[exportedtype]", 1, (nofcards), (width)
+   ENDIF
+END

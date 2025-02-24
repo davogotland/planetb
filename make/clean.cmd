@@ -1,0 +1,3 @@
+@ECHO OFF &SETLOCAL ENABLEDELAYEDEXPANSION
+
+del ..\output\*.* /Q /S /F

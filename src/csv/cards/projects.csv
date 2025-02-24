@@ -1,17 +1,17 @@
-firstCost,firstType,secondCost,secondType,thirdCost,thirdType,fourthCost,fourthType,gain,gainType,requirespassedhalf,requirements,points,variablePoints,projectType,name,gainoffsety,artpath,artx,arty,artw,arth,artontop,starcoverfrom,uid,nofplayers
-3,cement,2,steel,1,oil,4,energy,4,energy,N,CCC,14,,infrastructure,Power Plant,0.7,card_art\projects\,0.44,1.125,6.72,3.75,N,3.44,p01,(2+)
-4,cement,1,steel,1,oil,4,energy,4,vp,N,IISS,15,,infrastructure,Fusion Reactor,0.7,card_art\projects\,0.7175,1.9,6.165,2.8,N,3.44,p02,0
-4,cement,1,steel,4,energy,0,oil,4,vp,N,ISEC,20,,infrastructure,Solar Satelite Network,0.7,card_art\projects\,1.75,1,5.6,4.2,Y,6,p03,0
-2,cement,4,energy,0,steel,0,oil,4,vp,N,SSE,12,,infrastructure,Deep Core Heat Exchanger,0.7,card_art\projects\,1.063,1.3,5.474,3.4,N,3.44,p04,0
-8,cement,6,steel,4,oil,6,energy,0,nothing,Y,,20,,security,Orbital Asteroid Station,0.7,card_art\projects\,0,0.717,9.1,3.983,N,6,p05,0
-8,cement,8,steel,4,oil,4,energy,0,nothing,Y,,20,,security,Naval Base,0.7,card_art\projects\,0.05,1.9,9.1,2.44,N,6,p06,0
-6,cement,5,steel,4,oil,7,energy,0,nothing,Y,,18,,security,Missile Defense System,0.7,card_art\projects\,0,0,9.1,6,N,2.4,p07,0
-8,cement,6,steel,4,oil,5,energy,0,nothing,Y,,18,,security,Shield Generator Stations,0.7,card_art\projects\,2.177,1.25,4.746,3.164,N,3.5,p08,0
-3,oil,4,energy,0,cement,0,steel,3,cement,Y,SSS,J,6/7/8,science,AI-assisted City Planning,0.25,card_art\projects\,0,2,6.016,2.7,N,2.99,p09,(2+)
-4,oil,4,energy,0,cement,0,steel,1,steel,Y,EII,T,6/7/8,science,Orbital Defence Network,0.25,card_art\projects\,0,0,0,0,N,6,p10,0
-4,oil,4,energy,0,cement,0,steel,2,oil,Y,IISS,F,4/5/6,science,Academy,0,card_art\projects\,0,0,0,0,N,6,p11,0
-5,oil,4,energy,0,cement,0,steel,3,energy,Y,ISE,D,8/9/10,science,Interplanetary Exchange,0.25,card_art\projects\,0,1.1,6,3.6,N,6,p12,0
-1,cement,1,steel,1,oil,5,energy,0,nothing,N,ISEC,26,,commerce,Senate,0.7,card_art\projects\,0,0,0,0,N,6,p13,0
-2,steel,1,oil,6,energy,0,cement,5,cement,N,IIII,16,,commerce,Automated Manufacturing Plant,0.7,card_art\projects\,0,0,0,0,N,6,p14,(2+)
-3,cement,1,oil,6,energy,0,steel,4,steel,N,SSS,20,,commerce,Asteroid Mining Operation,0.7,card_art\projects\,0,1.4,7.725,3.2,N,6,p15,(2+)
-3,cement,2,steel,6,energy,0,oil,3,oil,N,EE,20,,commerce,Bio-fuel Refinery,0.7,card_art\projects\,0,0,0,0,N,6,p16,0
+firstCost,firstType,secondCost,secondType,thirdCost,thirdType,fourthCost,fourthType,gain,gainType,requirements,points,variablePoints,projectType,name,gainoffsety,artx,arty,artw,arth,artontop,starcoverfrom,uid,nofplayers
+3,cement,2,steel,1,oil,4,energy,4,energy,CCC,14,,infrastructure,Power Plant,0.7,0.44,1.125,6.72,3.75,N,3.44,p01,(2+)
+4,cement,1,steel,1,oil,4,energy,4,vp,IISS,15,,infrastructure,Fusion Reactor,0.7,0.7175,1.9,6.165,2.8,N,3.44,p02,0
+4,cement,1,steel,4,energy,0,oil,4,vp,ISEC,20,,infrastructure,Solar Satelite Network,0.7,1.75,1,5.6,4.2,Y,6,p03,0
+2,cement,4,energy,0,steel,0,oil,4,vp,SSE,12,,infrastructure,Deep Core Heat Exchanger,0.7,1.063,1.3,5.474,3.4,N,3.44,p04,0
+8,cement,6,steel,4,oil,6,energy,0,nothing,H,20,,security,Orbital Asteroid Station,0.7,0,0.717,9.1,3.983,N,6,p05,0
+8,cement,8,steel,4,oil,4,energy,0,nothing,H,20,,security,Naval Base,0.7,0.05,1.9,9.1,2.44,N,6,p06,0
+6,cement,5,steel,4,oil,7,energy,0,nothing,H,18,,security,Missile Defense System,0.7,0,0,9.1,6,N,2.4,p07,0
+8,cement,6,steel,4,oil,5,energy,0,nothing,H,18,,security,Shield Generator Stations,0.7,2.177,1.25,4.746,3.164,N,3.5,p08,0
+3,oil,4,energy,0,cement,0,steel,3,cement,HSSS,J,6/7/8,science,AI-assisted City Planning,0.25,0,2,6.016,2.7,N,2.99,p09,(2+)
+4,oil,4,energy,0,cement,0,steel,1,steel,HEII,T,6/7/8,science,Orbital Defence Network,0.25,0,0,0,0,N,6,p10,0
+4,oil,4,energy,0,cement,0,steel,2,oil,HIISS,F,4/5/6,science,Academy,0,0,0,0,0,N,6,p11,0
+5,oil,4,energy,0,cement,0,steel,3,energy,HISE,D,8/9/10,science,Interplanetary Exchange,0.25,0,1.1,6,3.6,N,6,p12,0
+1,cement,1,steel,1,oil,5,energy,0,nothing,ISEC,26,,commerce,Senate,0.7,0,0,0,0,N,6,p13,0
+2,steel,1,oil,6,energy,0,cement,5,cement,IIII,16,,commerce,Automated Manufacturing Plant,0.7,0,0,0,0,N,6,p14,(2+)
+3,cement,1,oil,6,energy,0,steel,4,steel,SSS,20,,commerce,Asteroid Mining Operation,0.7,0,1.4,7.725,3.2,N,6,p15,(2+)
+3,cement,2,steel,6,energy,0,oil,3,oil,EE,20,,commerce,Bio-fuel Refinery,0.7,0,0,0,0,N,6,p16,0
