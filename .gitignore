@@ -1,1 +1,16 @@
 /output/**
+/src/tex/texbuild/**
+*.aux
+*.bbl
+*.blg
+*.dvi
+*.idx
+*.ind
+*.lof
+*.lot
+*.nav
+*.out
+*.snm
+*.toc
+*.log
+*.pdf
